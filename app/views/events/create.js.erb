@@ -1,0 +1,5 @@
+<% if event.errors.any? %>
+  alert('Not a valid Event object, make sure name is present and dates order is correct.')
+<% else %>
+  $('.new-event-form').html("<%=j render partial: 'new_event_form', locals: { event: event } %>")
+<% end %>
