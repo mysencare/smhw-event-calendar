@@ -1,8 +1,9 @@
 <h1>Events calendar</h1>
 
 <div class='new-event-form'>
-  <%= render partial: 'new_event_form', locals: { event: event } %>
+  <%= render partial: 'new_event_form',  locals: { event: event } %>
 </div>
 
-<!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
-<%= image_tag 'events_calendar', width: '100%' %>
+<div class='events-calendar'>
+  <%= render partial: 'events_calendar', locals: { events: events } %>
+</div>
