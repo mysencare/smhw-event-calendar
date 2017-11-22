@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'rails'
 gem 'sass-rails'
 gem 'sdoc', group: :doc
+gem 'simple_calendar', '~> 2.0'
 gem 'sqlite3'
 gem 'turbolinks'
 gem 'uglifier'
