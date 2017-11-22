@@ -15,3 +15,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'spring'
 end
+
+group :test do
+  gem 'rspec-rails', '~> 3.6'
+end
