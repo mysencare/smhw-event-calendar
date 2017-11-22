@@ -1,0 +1,8 @@
+Add new event:
+<%= form_for event, remote: true do |f| %>
+  Name:        <%= f.text_field  :name %><br />
+  Start Date:  <%= f.date_select :start_date %><br />
+  End Date:    <%= f.date_select :end_date %><br />
+  Description: <%= f.text_area   :description %><br />
+  <%= f.submit %>
+<% end %>
