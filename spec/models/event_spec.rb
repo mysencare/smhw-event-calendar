@@ -1,9 +1,13 @@
 require 'rails_helper'
 
 describe Event, type: :model do
-  subject          { described_class.new(name: name, start_date: start_date) }
+  subject do
+    described_class.new(name: name, start_date: start_date, end_date: end_date)
+  end
+
   let(:name)       { nil }
   let(:start_date) { nil }
+  let(:end_date)   { nil }
 
   describe 'validations' do
     let(:blank_name_message)       { "Name can't be blank" }
@@ -35,6 +39,20 @@ describe Event, type: :model do
       it 'is not a valid Event instance', :aggregate_failures do
         expect(subject.valid?).to eq(false)
         expect(subject.errors).to match_array([blank_start_date_message])
+      end
+    end
+
+    context 'start_date after end_date' do
+      let(:name)       { 'some name' }
+      let(:end_date)   { Date.current }
+      let(:start_date) { end_date + 1.day }
+      let(:wrong_date_order_message) do
+        'end_date should be equal or greater then start_date'
+      end
+
+      it 'is not a valid Event instance', :aggregate_failures do
+        expect(subject.valid?).to eq(false)
+        expect(subject.errors).to match_array([wrong_date_order_message])
       end
     end
 
