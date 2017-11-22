@@ -1,0 +1,7 @@
+Events:
+<%= week_calendar(number_of_weeks: 1, attribute: :start_date, end_attribute: :end_date, events: events) do |date, events| %>
+  <%= date %>
+  <% events.each do |event| %>
+    <%= render partial: 'event_cell', locals: { event: event } %>
+  <% end %>
+<% end %>
