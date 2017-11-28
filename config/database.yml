@@ -1,15 +1,12 @@
-development:
-  adapter: postgresql
-  encoding: unicode
-  database: event_calendar_dev
+default: &default
+  adapter: sqlite3
   pool: 5
-  username: event_calendar
-  password:
+  timeout: 5000
+
+development:
+  <<: *default
+  database: db/development.sqlite3
 
 test:
-  adapter: postgresql
-  encoding: unicode
-  database: event_calendar_test
-  pool: 5
-  username: event_calendar
-  password:
+  <<: *default
+  database: db/test.sqlite3

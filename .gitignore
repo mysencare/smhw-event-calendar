@@ -1,6 +1,7 @@
 /.bundle/
 /.idea/
 
+/db/*.sqlite3
 /log/*
 !/log/.keep
 /tmp/
