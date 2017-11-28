@@ -1,0 +1,32 @@
+h1 Events calendar
+
+.week-calendar
+  p
+    button.week-calendar--create-btn Create event
+
+  .week-calendar--table
+    .week-calendar--table-header
+      - @week_calendar.days_range.each do |date|
+        .week-calendar--table-header-day
+          strong = date.strftime('%A')
+          br
+          | #{date.day.ordinalize} #{date.strftime('%b')}
+    .week-calendar--table-content
+      = render partial: 'week_calendar_event', collection: @week_calendar.events, as: :event
+
+  .popup--wrap.week-calendar--event-popup style="display: none"
+    .popup
+      button.popup--close type="button"
+      = form_for @new_event, url: events_path, remote: true do |f|
+        .form-group
+          = f.text_field :title, placeholder: 'Enter a title', required: true
+        .form-group
+          = f.select :subject, options_for_select(CalendarEvent::SUBJECTS), {prompt: 'Please select subject...'}, required: true
+        .form-group
+          = f.select :teacher, options_for_select(CalendarEvent::TEACHERS), {prompt: 'Please select teacher...'}, required: true
+        .form-group.week-calendar--date-range-fields
+          = f.date_field :starts_at, required: true, min: Date.current.beginning_of_week, max: Date.current.end_of_week
+          = f.date_field :ends_at, required: true, min: Date.current.beginning_of_week, max: Date.current.end_of_week
+        .form-buttons
+          button Create
+          button.week-calendar--popup-cancel-btn type="button" Cancel
