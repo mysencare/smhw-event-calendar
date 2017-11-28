@@ -1,6 +1,7 @@
 class WeekCalendar
   constructor: (@root) ->
     @$eventFormPopup = $('.week-calendar--event-popup', @root)
+    @$eventItemsContainer = $('.week-calendar--table-content', @root)
     @initCreateButton()
     @initEventFormHandler()
     @initPopupCancelButton()
@@ -12,11 +13,12 @@ class WeekCalendar
 
   initEventFormHandler: =>
     $('form', @$eventFormPopup)
-      .on 'ajax:success', =>
-        console.log('success')
-        @$eventFormPopup.hide()
-      .on 'ajax:error', =>
-        console.log('error')
+      .on 'ajax:success', (e, data) =>
+        @$eventItemsContainer.append(data.append_item)
+        @$eventFormPopup.find('form').trigger('reset').end().hide()
+      .on 'ajax:error', (e, xhr, status, error) =>
+        data = xhr.responseJSON
+        alert(data.message) if data?.message
 
   initPopupCancelButton: =>
     $('.week-calendar--popup-cancel-btn', @root).click =>

@@ -13,7 +13,7 @@ class CalendarEvent < ActiveRecord::Base
   ]
 
   def days_duration
-    (ends_at - starts_at).to_i
+    (ends_at - starts_at).to_i + 1
   end
 
   def week_days_offset
