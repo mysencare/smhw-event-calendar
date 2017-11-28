@@ -1,0 +1,49 @@
+.week-calendar--table {
+  border: 1px solid silver;
+  border-radius: 4px;
+  position: relative;
+  background-size: 1px 100%;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to right, silver 1px, transparent 1px, transparent),
+                    linear-gradient(to right, silver 1px, transparent 1px, transparent),
+                    linear-gradient(to right, silver 1px, transparent 1px, transparent),
+                    linear-gradient(to right, silver 1px, transparent 1px, transparent),
+                    linear-gradient(to right, silver 1px, transparent 1px, transparent),
+                    linear-gradient(to right, silver 1px, transparent 1px, transparent);
+  background-position: left calc(100% / 7 * 1) top,
+                       left calc(100% / 7 * 2) top,
+                       left calc(100% / 7 * 3) top,
+                       left calc(100% / 7 * 4) top,
+                       left calc(100% / 7 * 5) top,
+                       left calc(100% / 7 * 6) top;
+}
+.week-calendar--table-header {
+  display: flex;
+  border-bottom: 1px solid silver;
+}
+.week-calendar--table-header-day {
+  padding: 12px 16px;
+  flex: 1 0;
+  text-align: center;
+  line-height: 1.4em;
+}
+.week-calendar--table-content {
+  min-height: 80px;
+  padding-bottom: 16px;
+}
+
+.week-calendar-event {
+  position: relative;
+  color: black;
+}
+.week-calendar-event--inner {
+  border: 1px solid #977f00;
+  border-radius: 4px;
+  background-color: #ffd300;
+  padding: 16px;
+  margin: 16px 16px 0;
+}
+.week-calendar-event--subject {
+  font-weight: bold;
+  margin: 0.25em 0;
+}

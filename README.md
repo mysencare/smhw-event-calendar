@@ -8,4 +8,5 @@ createuser --superuser event_calendar
 bundle install
 
 bin/rake db:create
+bin/rake db:seed
 ```

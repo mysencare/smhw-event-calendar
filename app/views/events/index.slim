@@ -1,0 +1,19 @@
+h1 Events calendar
+
+.week-calendar
+  p
+    button.week-calendar--create-btn Create event
+
+  .week-calendar--table
+    .week-calendar--table-header
+      - @week_calendar.days_range.each do |date|
+        .week-calendar--table-header-day
+          strong = date.strftime('%A')
+          br
+          | #{date.day.ordinalize} #{date.strftime('%b')}
+    .week-calendar--table-content
+      = render partial: 'week_calendar_event', collection: @week_calendar.events, as: :event
+
+  .popup-wrap.week-calendar--event-btn
+    .popup
+      .popup--close

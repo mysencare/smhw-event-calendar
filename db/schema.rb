@@ -11,9 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20171128133256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calendar_events", force: :cascade do |t|
+    t.string   "title"
+    t.string   "subject"
+    t.string   "teacher"
+    t.date     "starts_at"
+    t.date     "ends_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
