@@ -15,7 +15,7 @@ renderCalendar = () => {
 
 setupAjaxAddEventForm = () => {
   $("#add_event")
-    .on("ajax:success", (e, data, status, xhr) => {
+    .on("ajax:success", (_e, data) => {
       $('#calendar').fullCalendar(
         'addEventSource',
         [{
@@ -24,8 +24,8 @@ setupAjaxAddEventForm = () => {
           title: data.description,
         }]
       );
-    }).on("ajax:error", (e, xhr, status, error) => {
-      alert('ERR!'); // TODO!!!
+    }).on("ajax:error", (_e, xhr) => {
+      alert(xhr.responseText);
     });
 };
 

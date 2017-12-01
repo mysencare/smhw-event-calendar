@@ -10,5 +10,7 @@ class EventsController < ApplicationController
       params[:description].strip
     )
     render json: event, status: :created
+  rescue StandardError => e
+    render json: e.message, status: :bad_request
   end
 end

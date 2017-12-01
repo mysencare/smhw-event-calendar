@@ -3,7 +3,7 @@ RSpec.describe Services::Events::Creator do
   let(:first_event) { Event.first }
 
   it 'returns an event' do
-    expect(subject.call(today, today)).to be_an(Event)
+    expect(subject.call(today, today, 'd')).to be_an(Event)
   end
 
   it 'persists an event' do
