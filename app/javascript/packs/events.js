@@ -1,3 +1,10 @@
+renderViewColumns = (view, element) => {
+  element.find('th.fc-day-header.fc-widget-header').each(function () {
+    const date = moment($(this).data('date'));
+    $(this).html('<strong>' + date.format('dddd') + '</strong><br><span>' + date.format('Do MMM') + '</span>');
+  })
+};
+
 renderCalendar = () => {
   const $calendar = $('#calendar');
   const events = JSON.parse($calendar.attr('data-events')).map(e => ({
@@ -10,9 +17,10 @@ renderCalendar = () => {
     height: 300,
     header: false,
     firstDay: 1,
+    columnFormat: "dddd\nDo MMM",
+    viewRender: renderViewColumns,
     displayEventTime: false,
     events: events
-    // # TODO: format columns title, remove header
   });
 };
 
