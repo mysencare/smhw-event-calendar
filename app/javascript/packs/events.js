@@ -13,6 +13,23 @@ renderCalendar = () => {
   });
 };
 
+setupAjaxAddEventForm = () => {
+  $("#add_event")
+    .on("ajax:success", (e, data, status, xhr) => {
+      $('#calendar').fullCalendar(
+        'addEventSource',
+        [{
+          start: data.start_at,
+          end: data.end_at,
+          title: data.description,
+        }]
+      );
+    }).on("ajax:error", (e, xhr, status, error) => {
+      alert('ERR!'); // TODO!!!
+    });
+};
+
 $(document).ready(() => {
   renderCalendar();
+  setupAjaxAddEventForm();
 });

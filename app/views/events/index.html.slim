@@ -1,5 +1,18 @@
 h1 Events calendar
 
-p TODO: add form
+form#add_event action=events_path method="post" data-remote="true"
+  label
+    | Start
+    input<> name="start_at" value=Date.current.iso8601
+
+  label
+    | End
+    input<> name="end_at" value=Date.current.iso8601
+
+  label
+    | Description
+    input<> name="description" placeholder="description"
+
+  button<> Add event
 
 #calendar data-events=@events.to_json
