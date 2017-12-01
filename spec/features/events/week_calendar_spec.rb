@@ -1,5 +1,5 @@
 RSpec.feature 'Calendar' do
-  scenario 'Shows events for the current week' do
+  scenario 'Shows events for the current week', :js do
     xss = '<script>alert("No XSS :P");</script>'
     Services::Events::Creator.new.call(Date.current, Date.current, xss)
     visit events_path
