@@ -8,14 +8,12 @@ RSpec.feature 'Add event' do
     end
   end
 
-  # TODO: specs for formatting, days, etc
-
-  # TODO: inconsistent alert err, fix spec!
   context 'No description' do
-    xscenario 'Shows an error', :js do
+    scenario 'Shows an error', :js do
       visit events_path
-      # TODO: wait until page loaded
+      expect(page).to have_css('#calendar.fc')
       click_button('Add event')
+      sleep 1 # TODO: add helper to wait for the alert without sleep
       expect(page.driver.browser.switch_to.alert.text).to eq("Description can't be blank")
     end
   end
