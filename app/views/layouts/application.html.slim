@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title EventCalendar
+    = csrf_meta_tags
+
+    link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kbw-datepick@5.1.1/dist/css/jquery.datepick.css"
+    link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kbw-datepick@5.1.1/dist/css/humanity.datepick.css"
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.css"
+    = stylesheet_link_tag 'application', media: 'all'
+
+    script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.3/moment.min.js"
+    script src="https://cdn.jsdelivr.net/npm/kbw-datepick@5.1.1/dist/js/jquery.plugin.min.js"
+    script src="https://cdn.jsdelivr.net/npm/kbw-datepick@5.1.1/dist/js/jquery.datepick.min.js"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.7.0/fullcalendar.min.js"
+    = javascript_pack_tag 'application'
+  body
+    = yield
