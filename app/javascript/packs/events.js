@@ -1,3 +1,7 @@
+setupDatepickers = () => {
+  $('#start_at,#end_at').datepick({dateFormat: 'yyyy-mm-dd'});
+};
+
 renderViewColumns = (view, element) => {
   element.find('th.fc-day-header.fc-widget-header').each(function () {
     const date = moment($(this).data('date'));
@@ -25,6 +29,7 @@ renderCalendar = () => {
 };
 
 setupAjaxAddEventForm = () => {
+  setupDatepickers();
   $("#add_event")
     .on("ajax:success", (_e, data) => {
       $('#calendar').fullCalendar(

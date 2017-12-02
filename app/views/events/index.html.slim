@@ -3,11 +3,11 @@ h1 Events calendar
 form#add_event action=events_path method="post" data-remote="true"
   label
     | Start
-    input<> name="start_at" value=Date.current.iso8601
+    input#start_at<> name="start_at" value=Date.current.iso8601
 
   label
     | End
-    input<> name="end_at" value=Date.current.iso8601
+    input#end_at<> name="end_at" value=Date.current.iso8601
 
   label
     | Description
